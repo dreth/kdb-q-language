@@ -1,0 +1,6 @@
+interface:
+  display_name: "q Language"
+  short_description: "Write practical q and kdb+ queries"
+  default_prompt: "Use $q-language to write an idiomatic q query and explain the key q-sql choices."
+policy:
+  allow_implicit_invocation: true
