@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -106,6 +107,27 @@ def check_local_links() -> None:
                 fail(f"{path.relative_to(REPO)} has broken link to {link}")
 
 
+def check_q_runtime(q_path: str) -> None:
+    program = """1+1
+trades:([] sym:`IBM`MSFT`IBM; px:101 250 102f; size:100 200 50)
+select vwap:size wavg px, volume:sum size by sym from trades
+\\
+"""
+    result = subprocess.run(
+        [q_path, "-q"],
+        input=program,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=10,
+        check=False,
+    )
+    if result.returncode != 0:
+        fail(f"q semantic smoke test failed: {result.stderr.strip() or result.stdout.strip()}")
+    if "2" not in result.stdout or "IBM" not in result.stdout or "MSFT" not in result.stdout:
+        fail("q semantic smoke test produced unexpected output")
+
+
 def main() -> None:
     check_skill_frontmatter()
     check_openai_yaml()
@@ -114,7 +136,8 @@ def main() -> None:
     q_path = shutil.which("q")
     print("structural validation: ok")
     if q_path:
-        print(f"q runtime detected: {q_path}; semantic snippet validation can be run manually")
+        check_q_runtime(q_path)
+        print(f"q runtime detected: {q_path}; semantic smoke test: ok")
     else:
         print("q runtime detected: no; validation is structural only")
 
