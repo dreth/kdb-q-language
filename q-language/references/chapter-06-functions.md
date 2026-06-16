@@ -9,6 +9,8 @@ Source URL: https://code.kx.com/q4m3/6_Functions/
 - q uses call-by-name evaluation for function arguments, which matters for side effects and repeated evaluation.
 - Projection fixes some arguments and returns a new function.
 - Iterators (`each`, `over`, `scan`, etc.) are essential for idiomatic q.
+- q has no lexical closures over local variables; pass captured values explicitly or via projection.
+- General application (`.`) applies a function to an argument list and is useful for dynamic calls.
 
 ## q Syntax/Forms That Matter
 
@@ -17,6 +19,8 @@ Source URL: https://code.kx.com/q4m3/6_Functions/
 - Nullary function: `{[] .z.P}`
 - Early return/signal: `:value`, `'error`
 - Projection: `add10:+[10;]`, `within5_9:within[;5 9]`
+- Iterators: `f each xs`, `xs f' ys`, `x f/: ys`, `xs f\: y`, `f/[init;xs]`, `f\ xs`, `f':xs`
+- General apply: `f . args`
 - Identity: `::`
 
 ## Common Mistakes/Pitfalls
@@ -26,6 +30,8 @@ Source URL: https://code.kx.com/q4m3/6_Functions/
 - Forgetting semicolons separate expressions inside function bodies.
 - Creating projections with omitted arguments in the wrong position.
 - Assuming every function is atomic; user functions need `each` or explicit atomic construction when list behavior differs.
+- Expecting a nested helper function to see the caller's locals automatically.
+- Using `over` where `scan` is needed to retain intermediate states.
 
 ## Small Examples
 
@@ -36,6 +42,13 @@ vwap[101 102 103;100 200 100]
 scale:{[m;x] m*x}
 double:scale[2;]
 double 10 20 30
+
+sum2:{x+y}/[0;1 2 3 4]
+running:{x+y}\[0;1 2 3 4]
+({x*y} . 6 7)
+
+prices:100 101 99 105f
+-':prices
 ```
 
 ## Cross-Links

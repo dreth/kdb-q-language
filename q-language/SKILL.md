@@ -21,7 +21,8 @@ Use this skill when writing or reviewing q, kdb+, or q-sql. Prefer idiomatic arr
 - Confirm whether the input is a table, keyed table, splayed table, or partitioned table.
 - Check column names and types first with `meta t`, `cols t`, `key t`, and small `select[10] from t` probes when q is available.
 - Use q-sql templates for readable queries: `select ... by ... from t where ...`, `update ... by ... from t where ...`, `delete ... from t where ...`.
-- Use functional forms (`?[...]`, `![...]`) when column names, filters, groupings, or aggregates are dynamic.
+- Use functional forms (`?[t;c;b;a]`, `![t;c;b;a]`) when column names, filters, groupings, or aggregates are dynamic. Build constraints as lists and enlist literal symbols inside expressions.
+- For partitioned tables, put the partition constraint first in `where` and avoid broad `select from t` probes.
 - Remember row order matters in q. Sort explicitly with `xasc`, `xdesc`, `asc`, `desc`, or attributes when the result depends on order.
 
 ## Idiom Reminders
@@ -32,6 +33,8 @@ Use this skill when writing or reviewing q, kdb+, or q-sql. Prefer idiomatic arr
 - Use typed empty lists in schemas: `` `sym$()``, `` `long$()``, `` `timestamp$()``.
 - Use `enlist` when a single item must remain a list, row, key, or record.
 - Treat symbols as interned values. Avoid unbounded conversion of arbitrary strings to symbols in long-running processes.
+- Use `null x` instead of `x=0N`, and keep temporal units explicit when mixing date/time/timestamp values.
+- Prefer IPC function calls with typed arguments over constructing remote query strings.
 
 ## Validation
 
