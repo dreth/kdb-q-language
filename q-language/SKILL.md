@@ -10,11 +10,13 @@ Use this skill when writing or reviewing q, kdb+, or q-sql. Prefer idiomatic arr
 ## Workflow
 
 1. Read `references/index.md` first to choose the smallest relevant chapter notes.
-2. For data modeling or query work, read `chapter-08-tables.md` and `chapter-09-queries-q-sql.md` before writing code.
-3. For expression bugs, read `chapter-01-q-shock-and-awe.md`, `chapter-03-lists.md`, `chapter-04-operators.md`, and `chapter-06-functions.md`.
-4. For type, null, cast, or enum bugs, read `chapter-02-basic-data-types-atoms.md` and `chapter-07-transforming-data.md`.
-5. For persisted kdb+ databases, read `chapter-11-io.md` and `chapter-14-introduction-to-kdb.md`.
-6. If an error message is supplied, read `appendix-b-error-messages.md` early.
+2. For implementation tasks, start with `references/recipes.md`; for pasteable patterns, load `references/executable-examples.md`.
+3. For reviews or generated-code cleanup, load `references/anti-patterns.md` and check for SQL literalism, atom/list rank mistakes, key misuse, and symbol interning risks.
+4. For data modeling or query work, read `chapter-08-tables.md` and `chapter-09-queries-q-sql.md` before writing code.
+5. For expression bugs, read `chapter-01-q-shock-and-awe.md`, `chapter-03-lists.md`, `chapter-04-operators.md`, and `chapter-06-functions.md`.
+6. For type, null, cast, or enum bugs, read `chapter-02-basic-data-types-atoms.md` and `chapter-07-transforming-data.md`.
+7. For persisted kdb+ databases, read `chapter-11-io.md` and `chapter-14-introduction-to-kdb.md`.
+8. If an error message is supplied, read `appendix-b-error-messages.md` early.
 
 ## q-sql Query Checklist
 
@@ -40,4 +42,4 @@ Use this skill when writing or reviewing q, kdb+, or q-sql. Prefer idiomatic arr
 
 When q is installed, run generated snippets against a scratch process and inspect `type`, `meta`, `count`, and representative results. Without q, do structural validation: balance brackets/braces, check q-sql phrase order, verify column names/types against schemas, and reason through atom-vs-list rank.
 
-This skill includes `scripts/validate_skill.py` for repository structure checks. It does not validate q semantics unless a local q runtime is available.
+This skill includes `scripts/validate_skill.py` for repository structure checks and a small semantic suite when a local q runtime is available.

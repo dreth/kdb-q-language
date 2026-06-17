@@ -6,6 +6,9 @@ These notes summarize Q for Mortals 3.1 for agents writing q. They are navigatio
 
 ## Start Here
 
+- Task recipes for common agent work: [recipes.md](recipes.md)
+- Pasteable known-good snippets: [executable-examples.md](executable-examples.md)
+- Generated-code review traps: [anti-patterns.md](anti-patterns.md)
 - New q code or unfamiliar syntax: [chapter-01-q-shock-and-awe.md](chapter-01-q-shock-and-awe.md)
 - q-sql query, joins, functional forms: [chapter-08-tables.md](chapter-08-tables.md), [chapter-09-queries-q-sql.md](chapter-09-queries-q-sql.md)
 - Atom/list/rank/type issue: [chapter-02-basic-data-types-atoms.md](chapter-02-basic-data-types-atoms.md), [chapter-03-lists.md](chapter-03-lists.md), [chapter-07-transforming-data.md](chapter-07-transforming-data.md)
@@ -17,6 +20,12 @@ These notes summarize Q for Mortals 3.1 for agents writing q. They are navigatio
 - Splayed/partitioned kdb+ database work: [chapter-14-introduction-to-kdb.md](chapter-14-introduction-to-kdb.md)
 - Built-in lookup: [appendix-a-built-in-functions.md](appendix-a-built-in-functions.md)
 - Error diagnosis: [appendix-b-error-messages.md](appendix-b-error-messages.md)
+
+## Compact Agent References
+
+- [recipes.md](recipes.md): CSV loading, keyed tables, q-sql aggregation, rank/type debugging, partitioned-table probes, and time-series joins.
+- [executable-examples.md](executable-examples.md): small snippets for lists, dictionaries, tables, joins, q-sql, functional q-sql, and I/O.
+- [anti-patterns.md](anti-patterns.md): common LLM mistakes and safer q idioms.
 
 ## Required Source Coverage
 
