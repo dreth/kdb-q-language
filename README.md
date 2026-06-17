@@ -1,5 +1,7 @@
 # kdb-q-language
 
+[![skills.sh](https://skills.sh/b/dreth/kdb-q-language)](https://skills.sh/dreth/kdb-q-language)
+
 Codex/OpenAI-style skill for helping agents write q, the KX kdb+ query and programming language.
 
 The skill is grounded in the KX-hosted Q for Mortals 3.1 HTML edition: https://code.kx.com/q4m3/
