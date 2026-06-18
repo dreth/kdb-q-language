@@ -1,0 +1,6 @@
+interface:
+  display_name: "PyKX"
+  short_description: "Build practical PyKX and kdb+ interop"
+  default_prompt: "Use $pykx to write PyKX code that queries kdb+ data and handles conversions safely."
+policy:
+  allow_implicit_invocation: true
